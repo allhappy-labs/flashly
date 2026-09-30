@@ -1,0 +1,39 @@
+{
+    "name": "flashly",
+    "private": true,
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "pnpm dev:services && turbo run dev --filter='!@flashly/email-templates'",
+        "dev:services": "docker-compose -f docker-compose.dev.yml up -d",
+        "dev:apps": "turbo run dev",
+        "dev:stop": "docker-compose -f docker-compose.dev.yml down",
+        "lint": "oxlint . --fix --fix-suggestions",
+        "lint:check": "oxlint .",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "check:types": "turbo run check:types",
+        "validate:lint": "pnpm -r --if-present run lint && pnpm run lint:check",
+        "validate:build": "pnpm -r --if-present run build",
+        "validate:type-check": "pnpm -r --if-present run check:types && pnpm -r --if-present run typecheck && pnpm -r --if-present run check",
+        "validate": "pnpm run validate:lint && pnpm run validate:build && pnpm run validate:type-check",
+        "verify": "turbo run lint check:types check:translations --parallel",
+        "verify:changed": "node ./scripts/verify-changed-workspaces.mjs",
+        "start": "docker-compose up",
+        "docker:up": "docker-compose up -d",
+        "docker:down": "docker-compose down",
+        "docker:logs": "docker-compose logs -f",
+        "docker:clean": "docker-compose down -v",
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "husky": "^9.1.7",
+        "oxlint": "^1.75.0",
+        "prettier": "^3.9.6",
+        "tsx": "^4.23.1",
+        "turbo": "^2.10.7",
+        "typescript": "6.0.3"
+    },
+    "packageManager": "pnpm@11.17.0",
+    "engines": {
+        "node": ">=22.13"
+    }
+}

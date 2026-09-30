@@ -1,0 +1,39 @@
+{
+    "categories": {
+        "correctness": "warn",
+        "suspicious": "warn"
+    },
+    "rules": {
+        "react/rules-of-hooks": "error",
+        "react/exhaustive-deps": "warn",
+        "react/jsx-key": "error",
+        "react/no-children-prop": "warn",
+        "react/jsx-no-target-blank": "error",
+        "react/no-danger-with-children": "error",
+        "react/button-has-type": "warn",
+        "react/self-closing-comp": "warn",
+        "react/no-array-index-key": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react-perf/jsx-no-new-array-as-prop": "warn",
+        "react-perf/jsx-no-new-function-as-prop": "warn",
+        "react-perf/jsx-no-new-object-as-prop": "warn",
+        "react-perf/jsx-no-jsx-as-prop": "warn",
+        "typescript/no-explicit-any": "warn",
+        "typescript/consistent-type-imports": "warn",
+        "typescript/prefer-ts-expect-error": "warn",
+        "jsx-a11y/alt-text": "warn",
+        "jsx-a11y/aria-props": "warn",
+        "jsx-a11y/click-events-have-key-events": "warn",
+        "jsx-a11y/anchor-is-valid": "warn",
+        "jsx-a11y/label-has-associated-control": "warn",
+        "sort-keys": "off",
+        "sort-imports": "off"
+    },
+    "ignorePatterns": ["apps/promo/**/*.astro", "*.stories.tsx"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2024": true
+    },
+    "plugins": ["react", "react-perf", "unicorn", "typescript", "jsx-a11y"]
+}

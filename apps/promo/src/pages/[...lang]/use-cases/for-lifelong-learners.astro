@@ -1,0 +1,53 @@
+---
+import Base from "@/layouts/Base.astro";
+import UseCaseLanding from "@/partials/UseCaseLanding.astro";
+import config from "@/config/config.json";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { supportedLang } from "@/lib/utils/languageParser";
+import type { ContentEntryMap } from "astro:content";
+
+export function getStaticPaths() {
+  const paths = supportedLang.map((lang) => ({
+    params: { lang: lang || undefined },
+  }));
+  return paths;
+}
+
+const { lang } = Astro.params;
+const { default_language } = config.settings;
+let useCase = await getSinglePage(
+  "useCases",
+  lang as keyof ContentEntryMap,
+  "for-lifelong-learners"
+);
+if (useCase.length === 0 && lang && lang !== default_language) {
+  useCase = await getSinglePage(
+    "useCases",
+    default_language as keyof ContentEntryMap,
+    "for-lifelong-learners"
+  );
+}
+const testimonial = await getSinglePage(
+  "testimonialSection",
+  lang as keyof ContentEntryMap,
+  "testimonial"
+);
+const call_to_action = await getSinglePage(
+  "ctaSection",
+  lang as keyof ContentEntryMap,
+  "call-to-action"
+);
+---
+
+<Base
+  title={useCase[0].data.title}
+  meta_title={useCase[0].data.meta_title}
+  description={useCase[0].data.description}
+  image={useCase[0].data.image}
+>
+  <UseCaseLanding
+    useCase={useCase[0]}
+    testimonial={testimonial[0]}
+    call_to_action={call_to_action[0]}
+  />
+</Base>

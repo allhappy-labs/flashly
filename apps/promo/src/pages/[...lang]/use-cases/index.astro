@@ -1,0 +1,89 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import {
+  getTranslations,
+  slugSelector,
+  supportedLang,
+} from "@/lib/utils/languageParser";
+import { markdownify } from "@/lib/utils/textConverter";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { ContentEntryMap } from "astro:content";
+
+export function getStaticPaths() {
+  const paths = supportedLang.map((lang) => ({
+    params: { lang: lang || undefined },
+  }));
+  return paths;
+}
+
+const { lang } = Astro.params;
+const { default_language } = config.settings;
+const resolvedLang = (lang || default_language) as string;
+
+const translations = await getTranslations(resolvedLang);
+const pageTitle = translations.use_cases_title;
+const pageDescription = translations.use_cases_description;
+const readMoreLabel = translations.read_more;
+
+let useCases = await getSinglePage(
+  "useCases",
+  lang as keyof ContentEntryMap
+);
+if (useCases.length === 0 && lang && lang !== default_language) {
+  useCases = await getSinglePage(
+    "useCases",
+    default_language as keyof ContentEntryMap
+  );
+}
+
+const sortedUseCases = [...useCases].sort((a, b) => a.id.localeCompare(b.id));
+---
+
+<Base
+  title={pageTitle}
+  meta_title={pageTitle}
+  description={pageDescription}
+>
+  <PageHeader title={pageTitle} />
+  <section class="section-sm">
+    <div class="container">
+      {pageDescription && (
+        <div class="row justify-center">
+          <div class="md:col-10 lg:col-8 text-center">
+            <p set:html={markdownify(pageDescription)} class="text-lg" />
+          </div>
+        </div>
+      )}
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {sortedUseCases.map((useCase) => {
+          const slug = useCase.id.split("/").pop();
+          return (
+            <a
+              class="persona-card group"
+              href={slugSelector(`/use-cases/${slug}`, resolvedLang)}
+            >
+              {useCase.data.image && (
+                <ImageMod
+                  class="mb-4 w-full rounded-xl"
+                  src={useCase.data.image}
+                  alt={useCase.data.title}
+                  width={445}
+                  height={230}
+                  format="webp"
+                />
+              )}
+              <h3 class="h5 mb-2" set:text={useCase.data.title} />
+              <p class="text-sm text-text-light dark:text-darkmode-text-light">
+                {useCase.data.description}
+              </p>
+              <span class="persona-link">{readMoreLabel}</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</Base>

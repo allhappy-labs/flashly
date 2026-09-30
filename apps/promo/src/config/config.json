@@ -1,0 +1,60 @@
+{
+  "site": {
+    "title": "Flashly",
+    "base_url": "",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/favicon.ico",
+    "logo": "/images/logo.png",
+    "logo_darkmode": "/images/logo.png",
+    "logo_width": "140",
+    "logo_height": "32",
+    "logo_text": "Flashly"
+  },
+
+  "settings": {
+    "search": true,
+    "sticky_header": true,
+    "theme_switcher": true,
+    "default_theme": "system",
+    "pagination": 4,
+    "summary_length": 140,
+    "resources_folder": "resources",
+    "default_language": "en",
+    "disable_languages": [],
+    "default_language_in_subdir": false
+  },
+
+  "announcement": {
+    "enable": false,
+    "expire_days": 7
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "© 2026 Flashly. All rights reserved."
+  },
+
+  "navigation_button": {
+    "enable": true,
+    "label": "Get the App",
+    "link": "/mobile-app"
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
+
+  "disqus": {
+    "enable": true,
+    "shortname": "themefisher-template",
+    "settings": {}
+  },
+
+  "metadata": {
+    "meta_author": "Flashly",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Flashly helps you learn faster with AI-generated flashcards, spaced repetition, and fun study modes."
+  }
+}

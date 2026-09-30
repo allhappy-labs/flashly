@@ -1,0 +1,43 @@
+{
+    "name": "@flashly/shared",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "src/index.ts",
+    "react-native": "src/index.ts",
+    "exports": {
+        ".": {
+            "react-native": {
+                "default": "./src/index.ts"
+            },
+            "import": {
+                "types": "./src/index.ts",
+                "default": "./dist/index.js"
+            },
+            "types": "./src/index.ts",
+            "default": "./dist/index.js"
+        },
+        "./src": {
+            "import": "./src/index.ts",
+            "types": "./src/index.ts"
+        },
+        "./src/*": {
+            "import": "./src/*.ts",
+            "types": "./src/*.ts"
+        }
+    },
+    "scripts": {
+        "build": "tsc && node scripts/fix-dist-imports.mjs",
+        "typecheck": "tsc --noEmit",
+        "check:translations": "node scripts/check-translations.ts"
+    },
+    "dependencies": {
+        "dayjs": "^1.11.21",
+        "neverthrow": "^8.2.0",
+        "zod": "^4.4.3"
+    },
+    "devDependencies": {
+        "typescript": "^6.0.3"
+    }
+}

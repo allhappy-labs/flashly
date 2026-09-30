@@ -1,0 +1,38 @@
+{
+    "show-beta-features": {
+        "defaultValue": false,
+        "rules": [
+            {
+                "condition": {},
+                "force": true
+            }
+        ]
+    },
+    "dashboard-welcome-message": {
+        "defaultValue": "Welcome to your dashboard!",
+        "rules": [
+            {
+                "condition": {},
+                "force": "🎉 Welcome to your enhanced dashboard!"
+            }
+        ]
+    },
+    "button-style": {
+        "defaultValue": "default",
+        "rules": [
+            {
+                "condition": {},
+                "force": "primary"
+            }
+        ]
+    },
+    "bulk-deck-generation": {
+        "defaultValue": false,
+        "rules": [
+            {
+                "condition": {},
+                "force": true
+            }
+        ]
+    }
+}

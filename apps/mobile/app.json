@@ -1,0 +1,89 @@
+{
+    "expo": {
+        "name": "Flashly",
+        "slug": "flashly",
+        "scheme": "flashly",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "automatic",
+        "ios": {
+            "icon": "./assets/app.icon",
+            "supportsTablet": true,
+            "bundleIdentifier": "com.olhapi.flashly",
+            "infoPlist": {
+                "ITSAppUsesNonExemptEncryption": false,
+                "NSPhotoLibraryUsageDescription": "Flashly needs access to your photos to add images to cards.",
+                "CFBundleDocumentTypes": [
+                    {
+                        "CFBundleTypeName": "Flashly Deck",
+                        "CFBundleTypeRole": "Editor",
+                        "LSHandlerRank": "Owner",
+                        "LSItemContentTypes": ["com.flashly.deck"]
+                    }
+                ],
+                "UTExportedTypeDeclarations": [
+                    {
+                        "UTTypeIdentifier": "com.flashly.deck",
+                        "UTTypeConformsTo": ["public.zip-archive", "public.data"],
+                        "UTTypeDescription": "Flashly Deck File",
+                        "UTTypeTagSpecification": {
+                            "public.filename-extension": ["flashly"]
+                        }
+                    }
+                ]
+            }
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#FEA747"
+            },
+            "predictiveBackGestureEnabled": false,
+            "package": "com.olhapi.flashly",
+            "intentFilters": [
+                {
+                    "action": "VIEW",
+                    "category": ["BROWSABLE", "DEFAULT"],
+                    "data": [
+                        {
+                            "scheme": "content",
+                            "mimeType": "application/zip"
+                        },
+                        {
+                            "scheme": "content",
+                            "mimeType": "application/x-zip-compressed"
+                        },
+                        {
+                            "scheme": "content",
+                            "mimeType": "application/x-zip"
+                        },
+                        {
+                            "scheme": "content",
+                            "mimeType": "application/octet-stream"
+                        }
+                    ]
+                }
+            ]
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "plugins": [
+            "expo-localization",
+            [
+                "expo-image-picker",
+                {
+                    "photosPermission": "Flashly needs access to your photos to add images to cards."
+                }
+            ],
+            "expo-asset",
+            "expo-font"
+        ],
+        "extra": {
+            "eas": {
+                "projectId": "106266b5-f935-4045-b5a8-4cb08c3a235b"
+            }
+        }
+    }
+}

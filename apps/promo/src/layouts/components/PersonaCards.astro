@@ -1,0 +1,32 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import type { PersonaItem } from "@/types";
+
+const { title, description, items } = Astro.props as {
+  title: string;
+  description: string;
+  items: PersonaItem[];
+};
+---
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto mb-10 text-center md:col-8">
+        <h2 set:html={markdownify(title)} class="mb-3" />
+        <p set:html={markdownify(description)} class="text-lg" />
+      </div>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        items.map((item) => (
+          <a class="persona-card group" href={item.link}>
+            <h3 class="h5 mb-2" set:text={item.title} />
+            <p set:html={markdownify(item.content)} />
+            <span class="persona-link">Explore</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

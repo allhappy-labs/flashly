@@ -1,0 +1,53 @@
+{
+  "main": [
+    {
+      "name": "Use Cases",
+      "url": "/use-cases",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Exam Students",
+          "url": "/use-cases/for-exam-students"
+        },
+        {
+          "name": "Language Learners",
+          "url": "/use-cases/for-language-learners"
+        },
+        {
+          "name": "Lifelong Learners",
+          "url": "/use-cases/for-lifelong-learners"
+        }
+      ]
+    },
+    {
+      "name": "Pricing",
+      "url": "/pricing"
+    },
+    {
+      "name": "Resources",
+      "url": "/resources"
+    },
+    {
+      "name": "Help Center",
+      "url": "/help-center"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Pricing",
+      "url": "/pricing"
+    },
+    {
+      "name": "Resources",
+      "url": "/resources"
+    },
+    {
+      "name": "Help Center",
+      "url": "/help-center"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy"
+    }
+  ]
+}

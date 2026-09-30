@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: flashly-postgres-dev
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-flashly_db}
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - flashly_postgres18_dev_data:/var/lib/postgresql
+    networks:
+      - flashly-dev-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: flashly-redis-dev
+    ports:
+      - "6379:6379"
+    volumes:
+      - flashly_redis_dev_data:/data
+    networks:
+      - flashly-dev-network
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  flashly-dev-network:
+    driver: bridge
+
+volumes:
+  flashly_postgres18_dev_data:
+  flashly_redis_dev_data:

@@ -1,0 +1,105 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+import { supportedLang } from "@/lib/utils/languageParser";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { ContentEntryMap } from "astro:content";
+import FeatureOverview from "@/components/FeatureOverview.astro";
+import GeneratorTeaser from "@/components/GeneratorTeaser.astro";
+import PersonaCards from "@/components/PersonaCards.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import ImageMod from "@/components/ImageMod.astro";
+
+export function getStaticPaths() {
+  const paths = supportedLang.map((lang) => ({
+    params: { lang: lang || undefined },
+  }));
+  return paths;
+}
+
+const { lang } = Astro.params;
+const homepage = await getListPage("homepage", lang as keyof ContentEntryMap);
+const { hero, feature_overview, generator, personas } = homepage[0].data;
+
+const testimonial = await getSinglePage(
+  "testimonialSection",
+  lang as keyof ContentEntryMap,
+  "testimonial"
+);
+
+const call_to_action = await getSinglePage(
+  "ctaSection",
+  lang as keyof ContentEntryMap,
+  "call-to-action"
+);
+---
+
+<Base>
+  <section class="hero">
+    <div class="container">
+      <div class="row items-center">
+        <div class="lg:col-6">
+          <h1 set:html={markdownify(hero.title)} class="mb-4 text-h2 lg:text-h1" />
+          <p set:html={markdownify(hero.content)} class="mb-8 text-lg" />
+          <div class="flex flex-wrap gap-4">
+            {hero.primary_button.enable && (
+              <a class="btn btn-primary" href={hero.primary_button.link}>
+                {hero.primary_button.label}
+              </a>
+            )}
+            {hero.secondary_button.enable && (
+              <a class="btn btn-outline-primary" href={hero.secondary_button.link}>
+                {hero.secondary_button.label}
+              </a>
+            )}
+          </div>
+          {hero.badges.length > 0 && (
+            <div class="hero-badges">
+              {hero.badges.map((badge) => (
+                <a class="badge" href={badge.link}>{badge.label}</a>
+              ))}
+            </div>
+          )}
+        </div>
+        <div class="lg:col-6">
+          {hero.image && (
+            <ImageMod
+              src={hero.image}
+              height={520}
+              width={720}
+              alt="Flashly hero"
+              format="webp"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FeatureOverview
+    title={feature_overview.title}
+    description={feature_overview.description}
+    items={feature_overview.items}
+  />
+
+  <GeneratorTeaser
+    title={generator.title}
+    description={generator.description}
+    steps={generator.steps}
+    inputLabel={generator.input_label}
+    outputLabel={generator.output_label}
+    sampleInput={generator.sample_input}
+    sampleOutput={generator.sample_output}
+    button={generator.button}
+  />
+
+  <PersonaCards
+    title={personas.title}
+    description={personas.description}
+    items={personas.items}
+  />
+
+  <Testimonial testimonial={testimonial[0]} />
+  <CallToAction call_to_action={call_to_action[0]} />
+</Base>

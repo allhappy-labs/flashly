@@ -1,0 +1,15 @@
+{
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  },
+  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.d.ts"],
+  "exclude": ["./test/**"]
+}

@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Tailwind CSS v4 custom variant for dark mode - valid syntax */
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f9fbff;
+  --foreground: #0b1d33;
+  --card: #f3f6ff;
+  --card-foreground: #0b1d33;
+  --popover: #f3f6ff;
+  --popover-foreground: #0b1d33;
+  --primary: #3880ff;
+  --primary-foreground: #f9fbff;
+  --primary-soft: #5a95ff;
+  --primary-soft-foreground: #0b1d33;
+  --secondary: #f3f6ff;
+  --secondary-foreground: #0b1d33;
+  --muted: #f3f6ff;
+  --muted-foreground: #6b778c;
+  --accent: #3880ff;
+  --accent-foreground: #f9fbff;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: #e5e7ef;
+  --input: #e5e7ef;
+  --ring: #3880ff;
+  --chart-1: #3880ff;
+  --chart-2: #3880ff;
+  --chart-3: #5c975a;
+  --chart-4: #0b1d33;
+  --chart-5: #6b778c;
+  --radius: 0.625rem;
+  --sidebar: #f9fbff;
+  --sidebar-foreground: #0b1d33;
+  --sidebar-primary: #3880ff;
+  --sidebar-primary-foreground: #f9fbff;
+  --sidebar-accent: #f3f6ff;
+  --sidebar-accent-foreground: #0b1d33;
+  --sidebar-border: #e5e7ef;
+  --sidebar-ring: #3880ff;
+  --font-primary: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #f7faff;
+  --card: #0f1a2b;
+  --card-foreground: #f7faff;
+  --popover: #0f1a2b;
+  --popover-foreground: #f7faff;
+  --primary: #7aa2ff;
+  --primary-foreground: #0b1220;
+  --primary-soft: #9cbbff;
+  --primary-soft-foreground: #0b1220;
+  --secondary: #0f1a2b;
+  --secondary-foreground: #f7faff;
+  --muted: #0f1a2b;
+  --muted-foreground: #8fa1bf;
+  --accent: #7aa2ff;
+  --accent-foreground: #0b1220;
+  --destructive: #f87171;
+  --destructive-foreground: #450a0a;
+  --border: #1f2a3a;
+  --input: #1f2a3a;
+  --ring: #7aa2ff;
+  --chart-1: #7aa2ff;
+  --chart-2: #7aa2ff;
+  --chart-3: #6fbf77;
+  --chart-4: #f7faff;
+  --chart-5: #8fa1bf;
+  --sidebar: #0b1220;
+  --sidebar-foreground: #f7faff;
+  --sidebar-primary: #7aa2ff;
+  --sidebar-primary-foreground: #0b1220;
+  --sidebar-accent: #0f1a2b;
+  --sidebar-accent-foreground: #f7faff;
+  --sidebar-border: #1f2a3a;
+  --sidebar-ring: #7aa2ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-foreground: var(--primary-soft-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-primary);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-secondary);
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+}

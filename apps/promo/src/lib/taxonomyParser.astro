@@ -1,0 +1,72 @@
+---
+import config from "@/config/config.json";
+import languages from "@/config/language.json";
+import { slugify } from "@/lib/utils/textConverter";
+import { getCollection } from "astro:content";
+
+type TaxonomyCollection = "resources" | "help";
+type TaxonomyKey = "categories" | "tags";
+
+const DEFAULT_CONTENT_COLLECTION: TaxonomyCollection = "resources";
+
+// get taxonomy from frontmatter
+export const getTaxonomy = async (
+  collection: string,
+  name: TaxonomyKey,
+  contentCollection: TaxonomyCollection = DEFAULT_CONTENT_COLLECTION
+) => {
+  const { default_language } = config.settings;
+  const languageConfig = languages.find(
+    (language) => language.languageCode === collection
+  );
+  const defaultLanguageConfig = languages.find(
+    (language) => language.languageCode === default_language
+  );
+  const actualCollection = languageConfig?.contentDir ?? defaultLanguageConfig?.contentDir ?? default_language;
+
+  const singlePages = await getCollection(contentCollection, ({ id }) => {
+    return id.startsWith(actualCollection) && !id.endsWith("-index");
+  });
+  const taxonomyPages = singlePages.map((page) => page.data[name]);
+  let taxonomies: string[] = [];
+
+  for (let i = 0; i < taxonomyPages.length; i++) {
+    const categoryArray = taxonomyPages[i];
+    for (let j = 0; j < categoryArray.length; j++) {
+      taxonomies.push(slugify(categoryArray[j]));
+    }
+  }
+
+  const taxonomy = [...new Set(taxonomies)];
+  return taxonomy;
+};
+
+// get all taxonomies from frontmatter
+export const getAllTaxonomy = async (
+  collection: string,
+  name: TaxonomyKey,
+  contentCollection: TaxonomyCollection = DEFAULT_CONTENT_COLLECTION
+) => {
+  const { default_language } = config.settings;
+  const languageConfig = languages.find(
+    (language) => language.languageCode === collection
+  );
+  const defaultLanguageConfig = languages.find(
+    (language) => language.languageCode === default_language
+  );
+  const actualCollection = languageConfig?.contentDir ?? defaultLanguageConfig?.contentDir ?? default_language;
+
+  const singlePages = await getCollection(contentCollection, ({ id }) => {
+    return id.startsWith(actualCollection) && !id.endsWith("-index");
+  });
+  const taxonomyPages = singlePages.map((page) => page.data[name]);
+  let taxonomies: string[] = [];
+  for (let i = 0; i < taxonomyPages.length; i++) {
+    const categoryArray = taxonomyPages[i];
+    for (let j = 0; j < categoryArray.length; j++) {
+      taxonomies.push(slugify(categoryArray[j]));
+    }
+  }
+  return taxonomies;
+};
+---

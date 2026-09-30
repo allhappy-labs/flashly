@@ -1,0 +1,54 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { title, description, steps, sampleInput, sampleOutput, button, inputLabel, outputLabel } = Astro.props as {
+  title: string;
+  description: string;
+  steps: string[];
+  sampleInput: string;
+  sampleOutput: string;
+  button: { enable: boolean; label: string; link: string };
+  inputLabel: string;
+  outputLabel: string;
+};
+---
+
+<section class="section">
+  <div class="container">
+    <div class="generator-card">
+      <div class="row items-center">
+        <div class="mb-10 lg:col-5 lg:mb-0">
+          <p class="eyebrow">Generator</p>
+          <h2 set:html={markdownify(title)} class="mb-3" />
+          <p set:html={markdownify(description)} class="mb-6 text-lg" />
+          <ol class="generator-steps">
+            {steps.map((step) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+          {button.enable && (
+            <a class="btn btn-primary mt-6" href={button.link}>
+              {button.label}
+            </a>
+          )}
+        </div>
+        <div class="lg:col-7">
+          <div class="generator-demo">
+            <div>
+              <p class="demo-label" set:text={inputLabel} />
+              <div class="demo-panel">
+                <p>{sampleInput}</p>
+              </div>
+            </div>
+            <div>
+              <p class="demo-label" set:text={outputLabel} />
+              <div class="demo-panel accent">
+                <p>{sampleOutput}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

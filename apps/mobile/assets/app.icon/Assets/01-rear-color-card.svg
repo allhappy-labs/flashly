@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="rear-card-color" x1="270" y1="175" x2="790" y2="775" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#47A5FF"/>
+      <stop offset=".34" stop-color="#7CE14C"/>
+      <stop offset=".67" stop-color="#FFCA36"/>
+      <stop offset="1" stop-color="#FF6B87"/>
+    </linearGradient>
+  </defs>
+  <rect x="225" y="140" width="590" height="650" rx="105" fill="url(#rear-card-color)" transform="rotate(9 520 465)"/>
+</svg>

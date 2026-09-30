@@ -1,0 +1,59 @@
+---
+import config from "@/config/config.json";
+import brandLogo from "@flashly/branding/assets/logo-horizontal.svg";
+import { getLangFromUrl, slugSelector } from "@/lib/utils/languageParser";
+
+type LogoSource = string | { src: string };
+
+const { src }: { src?: LogoSource; srcDarkmode?: LogoSource } = Astro.props;
+const {
+  logo,
+  logo_width,
+  logo_height,
+  logo_text,
+  title,
+}: {
+  logo: string;
+  logo_width: string | number;
+  logo_height: string | number;
+  logo_text: string;
+  title: string;
+} = config.site;
+
+const { default_language } = config.settings;
+
+let lang = getLangFromUrl(Astro.url);
+
+const disabledLanguages = config.settings.disable_languages as string[];
+if (disabledLanguages.includes(lang)) {
+  lang = default_language;
+}
+
+const resolveLogoSource = (value: LogoSource | undefined) =>
+  typeof value === "string" ? value : value?.src;
+
+const logoSource =
+  resolveLogoSource(src) ??
+  resolveLogoSource(brandLogo) ??
+  logo;
+const logoWidth = Number.parseFloat(String(logo_width).replace("px", ""));
+const logoHeight = Number.parseFloat(String(logo_height).replace("px", ""));
+---
+
+<a href={slugSelector("/", lang)} class="navbar-brand inline-block">
+  {logoSource ? (
+    <img
+      src={logoSource}
+      class="inline-block"
+      width={logoWidth}
+      height={logoHeight}
+      alt={title}
+      loading="eager"
+      decoding="async"
+    />
+  ) : logo_text ? (
+    logo_text
+  ) : (
+    title
+  )}
+</a>

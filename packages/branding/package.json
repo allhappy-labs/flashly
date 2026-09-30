@@ -1,0 +1,16 @@
+{
+  "name": "@flashly/branding",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
+    "./theme.json": "./theme.json",
+    "./assets/logo-horizontal.svg": "./assets/logo-horizontal.svg",
+    "./assets/logo-symbol.svg": "./assets/logo-symbol.svg"
+  },
+  "types": "./src/index.ts"
+}

@@ -1,0 +1,110 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - banner:
+          - generic:
+            - link:
+              - /url: /
+              - generic: Flashly
+            - navigation:
+              - combobox:
+                - generic:
+                  - generic:
+                    - generic: 🇬🇧
+                    - generic: English
+        - main:
+          - generic:
+            - generic:
+              - generic:
+                - heading [level=1]: Flashcards
+                - paragraph: Generate flashcards with optional audio or images using your own API keys.
+              - button
+            - generic:
+              - generic:
+                - generic: Source material
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Drop a file here
+                      - generic: Or click to browse your files.
+                  - button
+                  - button
+                  - generic:
+                    - generic:
+                      - generic: source-material.txt
+                      - generic: 0.2 KB
+                    - generic: Photosynthesis converts light energy into chemical energy in plants. Chlorophyll absorbs light, and carbon dioxide plus water are used to form glucose and oxygen.
+              - generic:
+                - generic: Deck name
+                - textbox:
+                  - /placeholder: Generated deck
+                  - text: Task 6 Biology
+              - generic:
+                - generic: Target languages
+                - combobox:
+                  - generic: English
+                - paragraph: English is always included. Fronts are reused and audio is generated once.
+              - generic:
+                - generic: Number of cards
+                - spinbutton: "2"
+                - paragraph: Generated in batches of 50, up to 300 cards. Use 0 to let the model decide.
+              - generic:
+                - generic: Format
+                - generic:
+                  - generic:
+                    - button [pressed]:
+                      - generic: Q&A
+                    - button:
+                      - generic: Cloze
+                    - button:
+                      - generic: Definition
+                  - paragraph: Question and answer pairs.
+              - generic:
+                - generic: Material type
+                - combobox:
+                  - generic: General
+              - generic:
+                - generic: Custom instruction (optional)
+                - textbox:
+                  - /placeholder: "Example: Focus on definitions and key formulas."
+              - generic:
+                - button: Generate flashcards
+                - button: Clear results
+              - generic:
+                - generic:
+                  - generic:
+                    - heading [level=3]: Generated flashcards
+                    - paragraph: Showing 1 of 1 cards.
+                - generic:
+                  - button [expanded]:
+                    - generic: Download deck
+                  - button:
+                    - generic: Generate audio
+                  - button:
+                    - generic: Generate images
+                - generic:
+                  - generic:
+                    - generic:
+                      - button
+                      - generic:
+                        - generic:
+                          - button:
+                            - generic:
+                              - paragraph: Photosynthesis (edited)
+                          - generic:
+                            - paragraph: Plants convert light energy into chemical energy.
+                        - generic:
+                          - button
+                      - generic:
+                        - generic:
+                          - generic: Category
+                          - generic: Biology
+        - contentinfo:
+          - generic: © 2026 Flashly. All rights reserved.
+      - region "Notifications alt+T"
+  - menu "Download deck" [active] [ref=f2e269]:
+    - menuitem "Flashly (.flashly)" [ref=f2e270] [cursor=pointer]
+    - separator [ref=f2e271]
+    - menuitem "Anki CSV" [ref=f2e272] [cursor=pointer]
+    - menuitem "Quizlet text" [ref=f2e273] [cursor=pointer]

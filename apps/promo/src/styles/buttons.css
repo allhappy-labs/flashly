@@ -1,0 +1,15 @@
+.btn {
+  @apply inline-flex items-center justify-center rounded-full border border-transparent px-6 py-2 font-semibold transition;
+}
+
+.btn-sm {
+  @apply rounded-sm px-4 py-1.5 text-sm;
+}
+
+.btn-primary {
+  @apply border-primary bg-primary text-white shadow-[0_10px_24px_rgba(56,128,255,0.28)] hover:-translate-y-0.5 dark:border-darkmode-primary dark:bg-darkmode-primary dark:text-text-dark;
+}
+
+.btn-outline-primary {
+  @apply border-border bg-white text-text-dark hover:border-primary hover:text-primary dark:bg-darkmode-body dark:text-darkmode-text-light dark:border-darkmode-border dark:hover:border-darkmode-primary dark:hover:text-darkmode-primary;
+}

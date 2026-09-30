@@ -1,0 +1,53 @@
+{
+  "main": [
+    {
+      "name": "Cas d’usage",
+      "url": "/use-cases",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Examens",
+          "url": "/use-cases/for-exam-students"
+        },
+        {
+          "name": "Langues",
+          "url": "/use-cases/for-language-learners"
+        },
+        {
+          "name": "Apprentissage continu",
+          "url": "/use-cases/for-lifelong-learners"
+        }
+      ]
+    },
+    {
+      "name": "Tarifs",
+      "url": "/pricing"
+    },
+    {
+      "name": "Ressources",
+      "url": "/resources"
+    },
+    {
+      "name": "Centre d’aide",
+      "url": "/help-center"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Tarifs",
+      "url": "/pricing"
+    },
+    {
+      "name": "Ressources",
+      "url": "/resources"
+    },
+    {
+      "name": "Centre d’aide",
+      "url": "/help-center"
+    },
+    {
+      "name": "Politique de confidentialité",
+      "url": "/privacy-policy"
+    }
+  ]
+}

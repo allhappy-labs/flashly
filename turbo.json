@@ -1,0 +1,27 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", ".react-email/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check:types": {
+      "dependsOn": ["^check:types"]
+    },
+    "check:translations": {
+      "dependsOn": ["^check:translations"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "feature-dev"
+  short_description: "workflow for feature development"
+  default_prompt: "Guided feature development with codebase understanding and architecture focus."

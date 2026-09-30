@@ -1,0 +1,129 @@
+- generic [ref=f2e7]:
+  - generic [ref=f2e8]:
+    - banner [ref=f2e9]:
+      - generic [ref=f2e10]:
+        - link "Flashly Flashly" [ref=f2e11] [cursor=pointer]:
+          - /url: /
+          - img "Flashly" [ref=f2e12]
+          - generic [ref=f2e13]: Flashly
+        - navigation [ref=f2e14]:
+          - combobox "Select language" [ref=f2e15] [cursor=pointer]:
+            - generic:
+              - generic:
+                - generic: 🇬🇧
+                - generic: English
+    - main [ref=f2e18]:
+      - generic [ref=f2e19]:
+        - generic [ref=f2e20]:
+          - generic [ref=f2e21]:
+            - heading "Flashcards" [level=1] [ref=f2e22]
+            - paragraph [ref=f2e23]: Generate flashcards with optional audio or images using your own API keys.
+          - button "Hide settings" [expanded] [active] [ref=f2e83] [cursor=pointer]
+        - generic [ref=f2e85]:
+          - generic [ref=f2e86]:
+            - generic [ref=f2e87]: Flashcard generation settings
+            - generic [ref=f2e88]:
+              - text: Store your OpenRouter, ElevenLabs, and Unsplash keys for generation.
+              - link "Get an OpenRouter key" [ref=f2e89] [cursor=pointer]:
+                - /url: https://openrouter.ai/keys
+              - text: or
+              - link "get an ElevenLabs key" [ref=f2e90] [cursor=pointer]:
+                - /url: https://elevenlabs.io/app/settings/api-keys
+              - text: or
+              - link "get an Unsplash key" [ref=f2e91] [cursor=pointer]:
+                - /url: https://unsplash.com/developers
+              - text: .
+              - paragraph [ref=f2e92]: Keys are stored unencrypted in this browser and sent directly to the selected provider.
+          - generic [ref=f2e93]:
+            - generic [ref=f2e94]:
+              - generic [ref=f2e95]:
+                - generic [ref=f2e96]: OpenRouter API key
+                - generic [ref=f2e97]:
+                  - textbox "OpenRouter API key" [ref=f2e98]:
+                    - /placeholder: sk-or-v1...
+                  - button "Show value" [ref=f2e99] [cursor=pointer]
+                - paragraph [ref=f2e103]: Saved locally in this browser.
+              - generic [ref=f2e104]:
+                - generic [ref=f2e105]: OpenRouter model
+                - textbox "OpenRouter model" [ref=f2e106]:
+                  - /placeholder: openai/gpt-5.2
+                  - text: openai/task6-fixture-model
+                - paragraph [ref=f2e107]: Use any OpenRouter model slug supported by your account.
+            - generic [ref=f2e109]:
+              - generic [ref=f2e110]:
+                - generic [ref=f2e111]: ElevenLabs API key
+                - generic [ref=f2e112]:
+                  - textbox "ElevenLabs API key" [ref=f2e113]:
+                    - /placeholder: xi-api-key...
+                  - button "Show value" [ref=f2e114] [cursor=pointer]
+                - paragraph [ref=f2e118]: Saved locally in this browser.
+              - generic [ref=f2e119]:
+                - generic [ref=f2e120]: Voice name
+                - textbox "Voice name" [ref=f2e121]:
+                  - /placeholder: Alice
+                  - text: Task 6 Voice
+                - paragraph [ref=f2e122]: Optional override for the default voice.
+              - generic [ref=f2e123]:
+                - generic [ref=f2e124]: Model ID
+                - textbox "Model ID" [ref=f2e125]:
+                  - /placeholder: eleven_v3
+                  - text: task6-model
+                - paragraph [ref=f2e126]: Optional override for the default ElevenLabs model.
+            - generic [ref=f2e129]:
+              - generic [ref=f2e130]: Unsplash access key
+              - generic [ref=f2e131]:
+                - textbox "Unsplash access key" [ref=f2e132]:
+                  - /placeholder: uap-...
+                - button "Show value" [ref=f2e133] [cursor=pointer]
+              - paragraph [ref=f2e137]: Saved locally in this browser.
+            - generic [ref=f2e138]:
+              - button "Reset" [ref=f2e139] [cursor=pointer]
+              - button "Save settings" [ref=f2e140] [cursor=pointer]
+        - generic [ref=f2e25]:
+          - generic [ref=f2e26]:
+            - text: To use generation, configure your OpenRouter API key in
+            - button "settings" [ref=f2e27] [cursor=pointer]
+            - text: .
+          - generic [ref=f2e28]:
+            - generic [ref=f2e29]: Source material
+            - generic [ref=f2e30]:
+              - generic [ref=f2e32] [cursor=pointer]:
+                - generic [ref=f2e33]: Drop a file here
+                - generic [ref=f2e34]: Or click to browse your files.
+              - button "Source material Drop a file here Or click to browse your files." [ref=f2e35]
+            - paragraph [ref=f2e36]: Upload study material (.txt/.md), import an existing deck (.flashly), or use a custom instruction to generate cards.
+          - generic [ref=f2e37]:
+            - generic [ref=f2e38]: Deck name
+            - textbox "Deck name" [ref=f2e39]:
+              - /placeholder: Generated deck
+          - generic [ref=f2e40]:
+            - generic [ref=f2e41]: Target languages
+            - combobox [ref=f2e42] [cursor=pointer]:
+              - generic [ref=f2e43]: English
+            - paragraph [ref=f2e44]: English is always included. Fronts are reused and audio is generated once.
+          - generic [ref=f2e45]:
+            - generic [ref=f2e46]: Number of cards
+            - spinbutton "Number of cards" [ref=f2e47]: "10"
+            - paragraph [ref=f2e48]: Generated in batches of 50, up to 300 cards. Use 0 to let the model decide.
+          - generic [ref=f2e49]:
+            - generic [ref=f2e50]: Format
+            - generic [ref=f2e51]:
+              - generic [ref=f2e52]:
+                - button "Q&A" [pressed] [ref=f2e53] [cursor=pointer]
+                - button "Cloze" [ref=f2e59] [cursor=pointer]
+                - button "Definition" [ref=f2e65] [cursor=pointer]
+              - paragraph [ref=f2e70]: Question and answer pairs.
+          - generic [ref=f2e71]:
+            - generic [ref=f2e72]: Material type
+            - combobox "Material type" [ref=f2e73] [cursor=pointer]:
+              - generic [ref=f2e74]: General
+          - generic [ref=f2e75]:
+            - generic [ref=f2e76]: Custom instruction (optional)
+            - textbox "Custom instruction (optional)" [ref=f2e77]:
+              - /placeholder: "Example: Focus on definitions and key formulas."
+          - generic [ref=f2e78]:
+            - button "Generate flashcards" [ref=f2e79] [cursor=pointer]
+            - button "Clear results" [ref=f2e80] [cursor=pointer]
+    - contentinfo [ref=f2e81]:
+      - generic [ref=f2e82]: © 2026 Flashly. All rights reserved.
+  - region "Notifications alt+T"

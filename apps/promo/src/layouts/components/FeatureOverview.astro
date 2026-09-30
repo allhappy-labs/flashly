@@ -1,0 +1,35 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import type { FeatureItem } from "@/types";
+
+const { title, description, items } = Astro.props as {
+  title: string;
+  description: string;
+  items: FeatureItem[];
+};
+---
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto mb-10 text-center md:col-8">
+        <p class="eyebrow">Core Features</p>
+        <h2 set:html={markdownify(title)} class="mb-3" />
+        <p set:html={markdownify(description)} class="text-lg" />
+      </div>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {
+        items.map((item) => (
+          <div class="feature-card">
+            <div class="feature-icon">
+              <span class={`icon-${item.icon}`} aria-hidden="true" />
+            </div>
+            <h3 class="h5 mb-2" set:text={item.title} />
+            <p set:html={markdownify(item.content)} class="text-sm" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+{
+    "name": "@flashly/email-templates",
+    "version": "1.0.0",
+    "private": true,
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
+    "type": "module",
+    "exports": {
+        "./src/templates": {
+            "import": "./dist/src/templates.js",
+            "require": "./dist/src/templates.js",
+            "types": "./src/templates.ts"
+        }
+    },
+    "scripts": {
+        "build": "email export --silent && tsc",
+        "dev": "email dev --port 3002",
+        "export": "email export",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest"
+    },
+    "dependencies": {
+        "@flashly/branding": "workspace:*",
+        "@react-email/components": "^1.0.12",
+        "@react-email/tailwind": "^2.0.7",
+        "react": "19.2.3",
+        "react-dom": "19.2.3"
+    },
+    "devDependencies": {
+        "@react-email/preview-server": "5.2.10",
+        "@testing-library/react": "^16.3.2",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "happy-dom": "^20.11.1",
+        "react-email": "6.9.1",
+        "typescript": "^6.0.3",
+        "vitest": "^4.1.10"
+    }
+}

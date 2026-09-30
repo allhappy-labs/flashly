@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--config",
+        "config/playwright.json"
+      ],
+      "env": {}
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "storybook": {
+      "type": "http",
+      "url": "http://127.0.0.1:6006/mcp"
+    }
+  }
+}

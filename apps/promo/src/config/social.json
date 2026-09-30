@@ -1,0 +1,24 @@
+{
+  "main": [
+    {
+      "name": "x",
+      "icon": "FaXTwitter",
+      "link": "https://x.com/flashly"
+    },
+    {
+      "name": "instagram",
+      "icon": "FaInstagram",
+      "link": "https://www.instagram.com/flashly"
+    },
+    {
+      "name": "tiktok",
+      "icon": "FaTiktok",
+      "link": "https://www.tiktok.com/@flashly"
+    },
+    {
+      "name": "linkedin",
+      "icon": "FaLinkedin",
+      "link": "https://www.linkedin.com/company/flashly"
+    }
+  ]
+}
