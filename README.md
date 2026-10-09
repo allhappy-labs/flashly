@@ -2,6 +2,50 @@
 
 A modern, full-stack application built with TypeScript, featuring a React frontend, Fastify API, and Astro marketing website.
 
+## 📱 Mobile app preview
+
+Simulator captures of both sample decks, deck management, settings, and the study flows:
+
+<table>
+  <tr><th>Deck library</th><th>Swiss German deck</th><th>Space Exploration deck</th></tr>
+  <tr>
+    <td><img src="docs/screenshots/deck-library.png" width="200" alt="Deck library with both sample decks"></td>
+    <td><img src="docs/screenshots/swiss-german-overview.png" width="200" alt="Swiss German deck overview"></td>
+    <td><img src="docs/screenshots/space-exploration-overview.png" width="200" alt="Space Exploration deck overview"></td>
+  </tr>
+  <tr><th>Practice modes</th><th>Browse a card</th><th>Browse answer</th></tr>
+  <tr>
+    <td><img src="docs/screenshots/practice-modes.png" width="200" alt="Available practice modes"></td>
+    <td><img src="docs/screenshots/browse-front.png" width="200" alt="Browse card front"></td>
+    <td><img src="docs/screenshots/browse-answer.png" width="200" alt="Browse card answer"></td>
+  </tr>
+  <tr><th>Match</th><th>Write</th><th>Test setup</th></tr>
+  <tr>
+    <td><img src="docs/screenshots/match.png" width="200" alt="Match practice mode"></td>
+    <td><img src="docs/screenshots/write.png" width="200" alt="Write practice mode"></td>
+    <td><img src="docs/screenshots/test-setup.png" width="200" alt="Test setup screen"></td>
+  </tr>
+  <tr><th>Study front</th><th>Study answer</th><th>Learn setup</th></tr>
+  <tr>
+    <td><img src="docs/screenshots/study-front.png" width="200" alt="Study card front"></td>
+    <td><img src="docs/screenshots/study-answer.png" width="200" alt="Study card answer and grading controls"></td>
+    <td><img src="docs/screenshots/learn-setup.png" width="200" alt="Adaptive learning setup"></td>
+  </tr>
+  <tr><th>Learn question</th><th>Deck analytics</th><th>Edit deck</th></tr>
+  <tr>
+    <td><img src="docs/screenshots/learn-question.png" width="200" alt="Adaptive learning question"></td>
+    <td><img src="docs/screenshots/deck-analytics.png" width="200" alt="Deck analytics"></td>
+    <td><img src="docs/screenshots/edit-deck.png" width="200" alt="Deck card management"></td>
+  </tr>
+  <tr><th>Add a card</th><th>Settings</th></tr>
+  <tr>
+    <td><img src="docs/screenshots/add-card.png" width="200" alt="Add card form"></td>
+    <td><img src="docs/screenshots/settings.png" width="200" alt="Flashly settings"></td>
+  </tr>
+</table>
+
+Try the simulator showcase decks: [Swiss German Essentials](docs/showcase-decks/swiss-german-essentials.flashly) and [Space Exploration](docs/showcase-decks/space-exploration.flashly). Each archive contains 10 sample cards.
+
 ## 🏗️ Project Structure
 
 This is a monorepo managed with [Turbo](https://turbo.build) and [pnpm](https://pnpm.io).
